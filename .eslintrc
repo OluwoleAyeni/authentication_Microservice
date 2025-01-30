@@ -1,6 +1,0 @@
-{
-  "extends": ["prettier"],
-  "rule": {
-    // "indent": "error"
-  },
-}
