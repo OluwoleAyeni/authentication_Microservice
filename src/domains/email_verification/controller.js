@@ -9,6 +9,9 @@ const verifyUserEmail = async ({email, otp}) => {
         if (!validOTP) {
             throw error ("invalid code passed. check your inbox.")
         }
+
+        // update the user record to verify 
+        await User.updateOne({email}, {verified: true })
         // delete the OTP from the database
         await deleteOTP(email)
         return;

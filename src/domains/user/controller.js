@@ -22,6 +22,10 @@ const authenticateUser = async (data) => {
             throw error("invalid password entered!")
         }
 
+        if (!fetchedUser) {
+            throw Error("Email hasn't been verified yet. check your inbox")
+        }
+
         // Create a user token 
         const tokenData = { userId: fetchedUser._id, email }
         const token = await createToken(tokenData)
